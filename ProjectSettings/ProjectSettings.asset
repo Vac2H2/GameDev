@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 20
-  productGUID: 7f6f16bdf4517df48a009dc18718226f
+  productGUID: 31e5ee30cbd64b141b6dfed5e47d63d3
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: GameFinal
+  productName: My project
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -705,10 +705,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: f9796ec5-849a-41ed-967a-03ee211b9c74
+  cloudProjectId: 42e48727-a33d-44ae-955a-8bbc4b7acde0
   framebufferDepthMemorylessMode: 0
-  projectName: GameFinal 2024-08-14_15-00-47
-  organizationId: cjanthwl
+  projectName: My project 2024-08-14_14-11-44
+  organizationId: ong-jing-zhi
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
