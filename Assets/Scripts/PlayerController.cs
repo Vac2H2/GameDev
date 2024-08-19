@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             //Shoot
             animator.SetTrigger("shoot");
-            // PlayerGun.Instance.Shoot();
+            PlayerGun.Instance.Shoot();
         }
 
         if (Input.GetButtonUp("Fire1"))
