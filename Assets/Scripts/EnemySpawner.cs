@@ -11,10 +11,15 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float _maximumSpawnTime = 5f;
     private float _timeUntilSpawn;
+    private Transform playerTransform;
 
     void Awake()
     {
         SetTimeUntilSpawn();
+    }
+    void Start()
+    {
+        playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
@@ -31,7 +36,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (_enemyPrefab != null)
         {
-            Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+            GameObject instantiatedEnemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+            FollowScript followScript = instantiatedEnemy.GetComponent<FollowScript>();
+            if (followScript != null)
+            {
+                followScript.targetObj = playerTransform;
+            }
             Debug.Log($"Enemy spawned at position: {transform.position}");
         }
         else

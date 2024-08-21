@@ -5,6 +5,7 @@ public class EnemyFollow : MonoBehaviour
 {
     private NavMeshAgent agent;
     public Transform player;
+    private Animator animator;
 
     void Start()
     {
@@ -27,6 +28,14 @@ public class EnemyFollow : MonoBehaviour
             Debug.LogError("Enemy is not placed on a NavMesh!");
             return;
         }
+
+        animator = GetComponent<Animator>();
+        
+        // Check if the Animator component exists
+        if (animator == null)
+        {
+            Debug.LogError("Animator component not found on " + gameObject.name);
+        }
     }
 
     void Update()
@@ -34,6 +43,8 @@ public class EnemyFollow : MonoBehaviour
         if (agent != null && player != null && agent.isOnNavMesh)
         {
             agent.SetDestination(player.position);
+            Vector3 direction = agent.velocity.normalized;
+            transform.LookAt(transform.position + direction);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] private int maxHealth = 16;
     private int currentHealth;
     [SerializeField] private Image healthBar;
 
@@ -33,7 +33,10 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        // Add any death effects or logic here
-        Destroy(gameObject);
+        // Call the GameManager to restart the game
+        GameManager.Instance.RestartGame();
+
+        // Note: We're not destroying the player object anymore
+        // as the scene will be reloaded anyway
     }
 }
