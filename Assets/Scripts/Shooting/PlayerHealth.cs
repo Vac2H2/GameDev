@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 16;
     private int currentHealth;
     [SerializeField] private Image healthBar;
 
@@ -13,9 +13,9 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
-        currentHealth -= damage;
+        currentHealth--;
         UpdateHealthBar();
         if (currentHealth <= 0)
         {

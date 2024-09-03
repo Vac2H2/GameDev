@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class TurretFrost : MonoBehaviour
 {
-    
+
     [Header("References")]
     [SerializeField] private Transform turretRotationPoint;
     [SerializeField] private LayerMask enemyMask;
@@ -41,15 +41,15 @@ public class TurretFrost : MonoBehaviour
         freezeTimeBase = freezeTime;
         //UIManager.main.RegisterTurret(this);
 
-        //upgradeButton.onClick.AddListener(Upgrade);
-        if (upgradeButton != null)
-        {
-            upgradeButton.onClick.AddListener(Upgrade);
-            UpdateUpgradeCostText();
-        }
+        upgradeButton.onClick.AddListener(Upgrade);
+        //if (upgradeButton != null)
+        //{
+        //    upgradeButton.onClick.AddListener(Upgrade);
+        //    UpdateUpgradeCostText();
+        //}
     }
 
-    private void Update() 
+    private void Update()
     {
         if (target == null)
         {
@@ -69,7 +69,7 @@ public class TurretFrost : MonoBehaviour
             if (timeUntilFire >= 1f / aps)
             {
                 Shoot();
-                FreezeEnemies();
+                //FreezeEnemies();
                 timeUntilFire = 0f;
             }
         }
@@ -78,8 +78,13 @@ public class TurretFrost : MonoBehaviour
     private void Shoot()
     {
         GameObject bulletObj = Instantiate(bulletPrefab, firingPoint.position, Quaternion.identity);
-        Bullet bulletScript = bulletObj.GetComponent<Bullet>();
-        bulletScript.SetTarget(target);
+        FrostBullet bulletScript = bulletObj.GetComponent<FrostBullet>();
+        if (bulletScript != null)
+        {
+            {
+                bulletScript.SetTarget(target);
+            }
+        }
     }
 
     private void FindTarget()
@@ -105,29 +110,30 @@ public class TurretFrost : MonoBehaviour
         turretRotationPoint.rotation = Quaternion.RotateTowards(turretRotationPoint.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    private void FreezeEnemies()
-    {
-        {
-            RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, Vector2.zero, 0f, enemyMask);
+    //private void FreezeEnemies()
+    //{
+    //    {
+    //        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, targetingRange, Vector2.zero, 0f, enemyMask);
 
-            foreach (var hit in hits)
-            {
-                EnemyMovement em = hit.transform.GetComponent<EnemyMovement>();
-                if (em != null)
-                {
-                    em.UpdateSpeed(0.2f); 
-                    StartCoroutine(ResetEnemySpeed(em));
-                }
-            }
-        }
-    }
+    //        foreach (var hit in hits)
+    //        {
+    //            EnemyMovement em = hit.transform.GetComponent<EnemyMovement>();
+    //            if (em != null)
+    //            {
+    //                em.UpdateSpeed(0.2f); 
+    //                StartCoroutine(ResetEnemySpeed(em));
+    //            }
+    //        }
+    //    }
+    //}
 
 
-    private IEnumerator ResetEnemySpeed(EnemyMovement em) {
-        yield return new WaitForSeconds(freezeTime);
+    //private IEnumerator ResetEnemySpeed(EnemyMovement em) {
+    //    yield return new WaitForSeconds(freezeTime);
 
-        em.ResetSpeed();
-    }
+    //    em.ResetSpeed();
+    //}
+
 
     public void OpenUpgradeUI()
     {
@@ -186,7 +192,8 @@ public class TurretFrost : MonoBehaviour
     //    }
     //}
 
-    private void OnDrawGizmosSelected() {
+    private void OnDrawGizmosSelected()
+    {
 
         Handles.color = Color.magenta;
         Handles.DrawWireDisc(transform.position, transform.forward, targetingRange); //Draws arc showing range of tower

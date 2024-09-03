@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject hitEffect;
+    public float effectScale = 0.5f;
+
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
 
@@ -29,8 +32,13 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
+        if (hitEffect != null) {
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            effect.transform.localScale *= effectScale;
+
+            Destroy(effect, 2);
+        }
         other.gameObject.GetComponent<Health>().TakeDamage(bulletDamage);
         Destroy(gameObject);
     }
-
 }

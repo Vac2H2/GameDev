@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ShockEffect : MonoBehaviour
 {
+    public GameObject hitEffect;
+    public float effectScale = 0.5f;
+
     [Header("Attributes")]
     [SerializeField] private float expandSpeed = 5f; // Speed at which the circle expands
     [SerializeField] private float damage = 10f; // Damage dealt by the shock
@@ -60,6 +63,13 @@ public class ShockEffect : MonoBehaviour
                 {
                     enemyHealth.TakeDamage((int)damage); // Cast float to int
                     damagedEnemies.Add(enemy); // Mark this enemy as damaged
+
+                    if (hitEffect != null) {
+                        GameObject effect = Instantiate(hitEffect, enemy.transform.position, Quaternion.identity);
+                        effect.transform.localScale *= effectScale;
+
+                        Destroy(effect, 0.5f);
+                    }
                 }
             }
         }

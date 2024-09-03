@@ -3,13 +3,11 @@
 public class EnemyCollision : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField] private int damageAmount = 10; // Add this line
-
     void Start()
     {
         // Get the Animator component attached to the current GameObject
         animator = GetComponent<Animator>();
-
+        
         // Check if the Animator component exists
         if (animator == null)
         {
@@ -28,7 +26,7 @@ public class EnemyCollision : MonoBehaviour
             {
                 animator.SetBool("Fire", true);
             }
-            playerHealth.TakeDamage(damageAmount); // Update this line
+            playerHealth.TakeDamage();
         }
     }
 }

@@ -2,6 +2,9 @@
 
 public class Projectile : MonoBehaviour
 {
+    public GameObject hitEffect;
+    public float effectScale = 0.5f;
+    
     private Vector3 firingPoint;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float maxProjectileDistance;
@@ -35,6 +38,13 @@ public class Projectile : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
+            if (hitEffect != null) 
+            {
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                effect.transform.localScale *= effectScale;
+
+                Destroy(effect, 2);
+            }
         }
         Destroy(this.gameObject);
     }

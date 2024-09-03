@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
-  m_Color: {r: 1, g: 0.98099935, b: 0.36320752, a: 1}
+  m_Color: {r: 0.495283, g: 0.7573127, b: 1, a: 0.09411765}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1021e0ade76c04eb39dd33cc63ae63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitEffect: {fileID: 160900, guid: 1b1f4eecb848b384f93fd0216a95f56e, type: 3}
+  effectScale: 0.5
   expandSpeed: 3
   damage: 1
   enemyMask:

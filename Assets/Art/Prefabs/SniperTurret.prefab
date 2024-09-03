@@ -328,7 +328,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 960266975
+  m_SortingLayerID: 1700823753
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1566231249756570183
@@ -439,6 +439,7 @@ MonoBehaviour:
   firingPoint: {fileID: 3262817423151738695}
   upgradeUI: {fileID: 5436133286915422327}
   upgradeButton: {fileID: 8396561432568151101}
+  upgradeCostText: {fileID: 0}
   targetingRange: 10
   rotationSpeed: 100
   bps: 0.5
@@ -536,7 +537,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1837114467
+  m_SortingLayerID: -2132241881
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -5901685104126582622, guid: 389ac29ce9b4fd74b9adfbaea3c9acc4,
@@ -737,7 +738,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1837114467
+  m_SortingLayerID: -2132241881
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 6348413185770706182, guid: 49ceab453f551b843ae9471dd5c3aba1,
