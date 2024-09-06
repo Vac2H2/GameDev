@@ -28,5 +28,8 @@ public class FollowScript : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(this.transform.position, targetObj.position, speed * Time.deltaTime);
         transform.LookAt(targetObj);
+        if (transform.position.y < -0.1) {
+            Destroy(gameObject);
+        }
     }
 }
